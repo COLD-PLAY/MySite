@@ -6,6 +6,7 @@
 </head>
 <body>
     <?php
+    include('user.php');
     $username = $_GET['username'];
     if (!$username)
         $username = $_POST['username'];
@@ -18,7 +19,7 @@
 
         if ($password == $nowuser->getpassword()) {
             $flag = $nowuser->delete();
-            f ($flag) {
+            if ($flag) {
                 echo "<script>alert('log out successfully! jumping to the index home page');</script>";
                 echo "<script>window.location.href='index.php'</script>";
             }
@@ -38,9 +39,11 @@
             <input type="text" name="username" hidden="hidden" value="<?php echo $username; ?>">
             <input type="password" name="password" placeholder="密码">
             <hr class="line">
-            <input type="submit" value="注销">
+            <input type="submit" value="注销" style="width: 100%;">
         </form>
     </div>
+    <a href="handle.php<?php echo "?username=$username"; ?>" class="backhome">back</a>
+
     <script type="text/javascript">
         function checkall(f) {
             if (f.password.value == "") {

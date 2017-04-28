@@ -22,7 +22,7 @@ class conn {
 
 	public function getConn() {
 		try {
-			$conn = new PDO("mysql:host=$this->SERVERNAME;dbname=$this->DBNAME", $this->USERNAME, $this->PASSWORD, array(PDO::ATTR_PERSISTENT => true));
+			$conn = new PDO("mysql:host=$this->SERVERNAME;dbname=$this->DBNAME", $this->USERNAME, $this->PASSWORD, array(PDO::ATTR_PERSISTENT => true, PDO::MYSQL_ATTR_INIT_COMMAND => "set names utf8"));
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		} catch (PDOException $e) {
 			echo $e->getMessage();

@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>修改信息</title>
-    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="mystyle.css">
 </head>
 <body>
@@ -17,7 +16,7 @@
         include_once('user.php');
         $username = $_GET['username'];
         if (!$username) {
-        	$username = $_POST['username'];
+            $username = $_POST['username'];
         }
 
         $nowuser = new user($username);
@@ -49,7 +48,8 @@
             <input type="submit" value="修改">
         </form>
     </div>
-
+    <a href="handle.php<?php echo "?username=$username"; ?>" class="backhome">back</a>
+    
     <?php
     $password = $_POST['password'];
     $new_password = $_POST['new_password'];
@@ -57,17 +57,17 @@
     $new_address = $_POST['new_address'];
 
     if ($password and ($new_password or $new_phonenum or $new_address)) {
-    	$nowuser->start();
+        $nowuser->start();
         $flag = $nowuser->update($new_password, $new_phonenum, $new_address);
     
         $nowuser->close();
         if ($flag) {
-    		echo "<script>alert('update successfully!');</script>";
-    		echo "<script>window.location.href='signin.php'</script>";
-    	}
-    	else {
-    		echo "<script>alert('update failed! please try again');</script>";
-    	}
+            echo "<script>alert('update successfully!');</script>";
+            echo "<script>window.location.href='signin.php'</script>";
+        }
+        else {
+            echo "<script>alert('update failed! please try again');</script>";
+        }
     }
     ?>
 
