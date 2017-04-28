@@ -1,9 +1,9 @@
 <?php
 class conn {
-	private $SERVERNAME = 'localhost';
-	private $USERNAME = 'root';
+	private $SERVERNAME = 'bdm276664659.my3w.com';
+	private $USERNAME = 'bdm276664659';
 	private $PASSWORD = 'liaozhou1998';
-	private $DBNAME = 'coldplay';
+	private $DBNAME = 'bdm276664659_db';
 
 	function __construct() {
 		$num = func_num_args();

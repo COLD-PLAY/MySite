@@ -72,7 +72,7 @@
 
     <div class="box">
         <p id="password" hidden="hidden"><?php echo $password; ?></p>
-        <form onsubmit="return checkall(this)" action="deleteorder.jsp" name="deleteorder" method="post">
+        <form onsubmit="return checkall(this)" action="deleteorder.php" name="deleteorder" method="post">
             <input type="text" name="ordernum" placeholder="订单号">
             <hr class="line">
             <input type="submit" value="删除">

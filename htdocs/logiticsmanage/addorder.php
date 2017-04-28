@@ -9,6 +9,7 @@
 	<?php
 	include_once('user.php');
 	include_once('order.php');
+
 	$fromuser = $_GET['username'];
 
 	if ($fromuser) {
@@ -34,7 +35,7 @@
 
 		$noworder->close();
 		if ($flag) {
-    		echo "<script>alert('add order successfully!;</script>";
+    		echo "<script>alert('add order successfully!');</script>";
     	}
 		else {
 			echo "<script>alert('add order failed! please try again');</script>";

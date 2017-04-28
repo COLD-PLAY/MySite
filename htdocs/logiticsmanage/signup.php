@@ -26,6 +26,7 @@
 
     <?php
     include_once('user.php');
+
     $username = $_POST['username'];
     $password = $_POST['password'];
     $phonenum = $_POST['phonenum'];
@@ -41,6 +42,7 @@
     		// echo "$username $password $phonenum $address";
 
     		$nowuser = new user($username, $password, $phonenum, $address);
+            
     		$nowuser->start();
     		$flag = $nowuser->insert();
     		$nowuser->close();

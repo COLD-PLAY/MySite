@@ -70,7 +70,7 @@ class user {
 
 	// set user info for instance
 	public function getUserInfo() {
-		$sql = "SELECT * FROM user WHERE username='$this->username'";
+		$sql = "SELECT * FROM users WHERE username='$this->username'";
 
 		$this->start();
 		if ($this->conn) {
@@ -84,7 +84,7 @@ class user {
 
 	// insert user into table
 	public function insert() {
-		$sql = "INSERT INTO user VALUES('$this->username', '$this->password', '$this->phonenum', '$this->address')";
+		$sql = "INSERT INTO users VALUES('$this->username', '$this->password', '$this->phonenum', '$this->address')";
 		
 		if ($this->conn) {
 			// insert into table
@@ -101,7 +101,7 @@ class user {
 		if ($phonenum) $this->phonenum = $phonenum;
 		if ($address) $this->address = $address;
 
-		$sql = "UPDATE user SET password='$this->password', phonenum='$this->phonenum', address='$this->address' WHERE username='$this->username'";
+		$sql = "UPDATE users SET password='$this->password', phonenum='$this->phonenum', address='$this->address' WHERE username='$this->username'";
 
 		if ($this->conn) {
 			$this->conn->exec($sql);
@@ -113,7 +113,7 @@ class user {
 
 	// delete user from table
 	public function delete() {
-		$sql = "DELETE FROM user WHERE username='$this->username'";
+		$sql = "DELETE FROM users WHERE username='$this->username'";
 
 		if ($this->conn) {
 			$this->conn->exec($sql);
@@ -124,7 +124,7 @@ class user {
 	}
 
 	// public function delete_byroot($username) {
-	// 	$sql = "DELETE FROM user WHERE username='$username'";
+	// 	$sql = "DELETE FROM users WHERE username='$username'";
 
 	// 	if ($this->conn) {
 	// 		$this->conn->exec($sql);
@@ -158,7 +158,7 @@ class user {
 	}
 
 	public function getAllUsers() {
-		$sql = "SELECT * FROM user";
+		$sql = "SELECT * FROM users";
 
 		if ($this->conn) {
 			$result = $this->conn->query($sql);
