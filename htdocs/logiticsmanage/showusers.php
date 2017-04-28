@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>show users</title>
+	<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+<body>
+    <table align="center" cellspacing="5px" style="color: #555555;">
+        <tr>
+            <th>用户名</th>
+            <th>电话号码</th>
+            <th>地址</th>
+        </tr>
+		
+		<?php
+		include('user.php');
+		include('order.php');
+
+		$nowuser = new user('root');
+		$password = $nowuser->getpassword();
+
+		$nowuser->start();
+		$result = $nowuser->getAllUsers();
+
+		echo "<tr>";
+		if ($result) {
+			while ($user = $result->fetch()) {
+				echo "<td>$user[0]</td>";
+				echo "<td>$user[2]</td>";
+				echo "<td>$user[3]</td>";
+			}
+		}
+		else {
+			echo "<td>no users</td>";
+		}
+		echo "</tr>";
+		?>
+
+	</table>
+
+</body>
+</html>
