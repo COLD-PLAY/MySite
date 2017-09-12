@@ -15,14 +15,14 @@
 			$result = mysql_query($sql);
 
 			while ($row = mysql_fetch_array($result)) {				
-				$output[] = array('profileUrl' => $row['profileUrl'], 'username' => $row['username'], 'content' => $row['content']);
+				$output[] = array('profileUrl' => $row['profileUrl'], 'username' => $row['username'], 'content' => $row['content'], 'time' => $row['commentTime']);
 			}
 			print_r(json_encode($output));
 		}
 
 		else
 		{
-			$sql = "CREATE TABLE $table (id int NOT NULL AUTO_INCREMENT, profileUrl varchar(200), username varchar(20), content varchar(5000), PRIMARY KEY (id))";
+			$sql = "CREATE TABLE $table (id int NOT NULL AUTO_INCREMENT, profileUrl varchar(200), username varchar(20), content varchar(5000), commentTime datetime NOT NULL, PRIMARY KEY (id))";
 		    mysql_query($sql);
 		}
 	}
