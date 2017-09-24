@@ -11,7 +11,7 @@
 	}
 	else {
 		mysql_query("SET NAMES UTF8");
-		mysql_select_db($dbname);		
+		mysql_select_db($dbname);
 	}
 
 ?>
