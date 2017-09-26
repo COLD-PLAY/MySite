@@ -4,20 +4,38 @@
 <head>
 	<title>books</title>
 	<script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
+	<div id="tags">
+		
+	</div>
+
 	<script type="text/javascript">
+		var kinds = ['文化', '文学', '流行', '生活', '科技', '经管']
+		for (var i = 0; i <= kinds.length - 1; i++) {
+			$.getJSON('http://localhost/mysite/alltags', {
+				db: kinds[i]
+			}).done(function(data) {
+				
+			})
+		}
+
 		var totalheight = 0
 		var db = '文学'
-		var collection = '古典文学'
+		var coll = '古典文学'
+
 		window.onscroll = function() {
 			totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
 
 			//监听事件内容
 			if ($(document).height() <= totalheight) {
-			  	$.get('/', {
+				alert('233')
+
+			  	$.get('http://localhost/mysite/books.php', {
 			  		db: db,
+			  		coll: coll,
 			  		start: start
 			  	})
 			}

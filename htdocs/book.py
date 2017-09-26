@@ -6,7 +6,7 @@ kinds = ['文学', '流行', '文化', '生活', '经管', '科技']
 
 app = Flask(__name__)
 
-# @app.route('/')
+@app.route('/index')
 def index():
 	count = 0
 
@@ -17,17 +17,8 @@ def index():
 		collections = db.collection_names()
 
 		all_collections[kind] = collections
-
-		for collection in collections:
-			print(collection)
-			num = db[collection].find().count()
-			print()
-
-			count += num
-
-	print(count)
-
-	# print(all_collections)
+		
+	return str(all_collections)
 
 
 	# db = connection['文化']
@@ -42,9 +33,5 @@ def index():
 
 	# 	i += 1
 
-def main():
-	index()
-
 if __name__ == '__main__':
-	main()
-    # app.run(host='0.0.0.0', port=20480)
+    app.run(host='0.0.0.0', port=20480)
